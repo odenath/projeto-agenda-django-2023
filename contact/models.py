@@ -11,9 +11,12 @@ class Contact(models.Model):
     email = models.EmailField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
     description = models.TextField(blank=True)
+    show = models.BooleanField(default=True)
+    picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/%d')
+
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name + ' - ' + self.phone + ' - ' + self.email 
+     return f"{self.id} {self.first_name} {self.last_name} - {self.phone} - {self.email}"
 
 
     
